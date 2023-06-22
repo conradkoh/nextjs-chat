@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@auth/nextjs': 0.0.0-manual.223c6467
+
 dependencies:
   '@radix-ui/react-alert-dialog':
     specifier: ^1.0.4
@@ -42,8 +45,8 @@ dependencies:
     specifier: ^0.5.7
     version: 0.5.7
   ai:
-    specifier: ^2.1.2
-    version: 2.1.2(react@18.2.0)(svelte@3.59.1)(vue@3.3.4)
+    specifier: ^2.1.6
+    version: 2.1.6(react@18.2.0)(svelte@3.59.2)(vue@3.3.4)
   body-scroll-lock:
     specifier: 4.0.0-beta.0
     version: 4.0.0-beta.0
@@ -63,8 +66,8 @@ dependencies:
     specifier: 13.4.7-canary.1
     version: 13.4.7-canary.1(react-dom@18.2.0)(react@18.2.0)
   next-auth:
-    specifier: 0.0.0-manual.e65faa1c
-    version: 0.0.0-manual.e65faa1c(next@13.4.7-canary.1)(react-dom@18.2.0)(react@18.2.0)
+    specifier: 0.0.0-manual.4cd21ea5
+    version: 0.0.0-manual.4cd21ea5(next@13.4.7-canary.1)(react-dom@18.2.0)(react@18.2.0)
   next-themes:
     specifier: ^0.2.1
     version: 0.2.1(next@13.4.7-canary.1)(react-dom@18.2.0)(react@18.2.0)
@@ -165,8 +168,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /@auth/core@0.0.0-manual.8fcd46b0:
-    resolution: {integrity: sha512-KuhvZ0hHz6NvMAgAi+su0dJOD0YAiOWGaLswyfGK5RsG/cdhqyyiII9HOTaZbWZAKir0UGYb8SlN+owhV30JXg==}
+  /@auth/core@0.8.2:
+    resolution: {integrity: sha512-swqJ7tKFlqiYIl1znFGrrawUv1F6rwL+/f3DoeWDaZLnr2phiHFaZsvNvLK7WBJhnJbel78Vd3GznuR31AnFUw==}
     peerDependencies:
       nodemailer: ^6.8.0
     peerDependenciesMeta:
@@ -181,13 +184,13 @@ packages:
       preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
 
-  /@auth/nextjs@0.0.0-manual.b53ca00b(next@13.4.7-canary.1)(react@18.2.0):
-    resolution: {integrity: sha512-g0XvlP+3MSXPX512K6Hu0mGOkb1QPCkXkaA0Zr9i+bmTEDU9TtYTTNmX2EyvLeTfmrEEU/CMS92aWTmiki1KVA==}
+  /@auth/nextjs@0.0.0-manual.223c6467(next@13.4.7-canary.1)(react@18.2.0):
+    resolution: {integrity: sha512-nO6TMZ67ysq5lwpffQofxVLlTDHBLYX2x6VNXCXqbOoapofAk1qKyJ57lelHQdgV3py6qqWej/bTa4fDL19IDw==}
     peerDependencies:
-      next: ^13.4.6
+      next: ^13.4.2
       react: ^18.2.0
     dependencies:
-      '@auth/core': 0.0.0-manual.8fcd46b0
+      '@auth/core': 0.8.2
       next: 13.4.7-canary.1(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     transitivePeerDependencies:
@@ -1481,8 +1484,8 @@ packages:
     hasBin: true
     dev: true
 
-  /ai@2.1.2(react@18.2.0)(svelte@3.59.1)(vue@3.3.4):
-    resolution: {integrity: sha512-WhyGH95Pv/gpgVMQT5eCyKXJh7irozr+bmpJ94somfRYBcAN2U270ii/OOHzGLrPM3liTbBilGQL2Ds7/5sz9Q==}
+  /ai@2.1.6(react@18.2.0)(svelte@3.59.2)(vue@3.3.4):
+    resolution: {integrity: sha512-YFCy7KEUDvuNGNuD8Bz7BynXB/eW2jJRAxAIM8Hb5/gpppZJs6/nTSdpocROxoGESJchtkFgYdygieG/wciEEQ==}
     engines: {node: '>=14.6'}
     peerDependencies:
       react: ^18.0.0
@@ -1499,8 +1502,8 @@ packages:
       eventsource-parser: 1.0.0
       nanoid: 3.3.6
       react: 18.2.0
-      sswr: 1.10.0(svelte@3.59.1)
-      svelte: 3.59.1
+      sswr: 1.10.0(svelte@3.59.2)
+      svelte: 3.59.2
       swr: 2.1.5(react@18.2.0)
       swrv: 1.0.3(vue@3.3.4)
       vue: 3.3.4
@@ -4142,8 +4145,8 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-auth@0.0.0-manual.e65faa1c(next@13.4.7-canary.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-I51GvhZhZEf/gzhiTKivYPAIyZ74sCF3YXAMMuZ/bjahybeehPEu7opcPEA+H0Uxrvmo2G8/BQ7mT+TiFdM9IQ==}
+  /next-auth@0.0.0-manual.4cd21ea5(next@13.4.7-canary.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-qzsrs2xeopmIYUz1C+FbudBIoNI7xSTd1xWeECr/Qa4NFzbCt8Dr9tb2Yocpa5jnRpk0xN96HwsJqimOYVjtRg==}
     peerDependencies:
       next: ^13.4.5
       nodemailer: ^6.6.5
@@ -4153,7 +4156,8 @@ packages:
       nodemailer:
         optional: true
     dependencies:
-      '@auth/nextjs': 0.0.0-manual.b53ca00b(next@13.4.7-canary.1)(react@18.2.0)
+      '@auth/core': 0.8.2
+      '@auth/nextjs': 0.0.0-manual.223c6467(next@13.4.7-canary.1)(react@18.2.0)
       next: 13.4.7-canary.1(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -4990,12 +4994,12 @@ packages:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
     dev: false
 
-  /sswr@1.10.0(svelte@3.59.1):
+  /sswr@1.10.0(svelte@3.59.2):
     resolution: {integrity: sha512-nLWAJSQy3h8t7rrbTXanRyVHuQPj4PwKIVGe4IMlxJFdhyaxnN/JGACnvQKGDeWiTGYIZIx/jRuUsPEF0867Pg==}
     peerDependencies:
       svelte: ^3.29.0
     dependencies:
-      svelte: 3.59.1
+      svelte: 3.59.2
       swrev: 3.0.0
     dev: false
 
@@ -5129,8 +5133,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte@3.59.1:
-    resolution: {integrity: sha512-pKj8fEBmqf6mq3/NfrB9SLtcJcUvjYSWyePlfCqN9gujLB25RitWK8PvFzlwim6hD/We35KbPlRteuA6rnPGcQ==}
+  /svelte@3.59.2:
+    resolution: {integrity: sha512-vzSyuGr3eEoAtT/A6bmajosJZIUWySzY2CzB3w2pgPvnkUjGqlDnsNnA0PMO+mMAhuyMul6C2uuZzY6ELSkzyA==}
     engines: {node: '>= 8'}
     dev: false
 
