@@ -19,6 +19,8 @@ import {
 import { useState } from 'react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
+import { usePathname, useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 const IS_PREVIEW = process.env.VERCEL_ENV === 'preview'
 export interface ChatProps extends React.ComponentProps<'div'> {
@@ -26,11 +28,42 @@ export interface ChatProps extends React.ComponentProps<'div'> {
   id?: string
 }
 
+const models = {
+  'gpt-3.5-turbo-16k': {
+    name: 'GPT-3.5 Turbo 16k',
+    key: 'gpt-3.5-turbo-16k'
+  },
+  'gpt-4': {
+    name: 'GPT-4',
+    key: 'gpt-4'
+  }
+}
+
 export function Chat({ id, initialMessages, className }: ChatProps) {
   const [previewToken, setPreviewToken] = useLocalStorage<string | null>(
     'ai-token',
     null
   )
+  const router = useRouter()
+  const search = useSearchParams()
+  const pathname = usePathname()
+  const modelOverride = search.get('model')
+  let model = models['gpt-3.5-turbo-16k'].key
+  if (modelOverride) {
+    model = modelOverride
+  }
+  const activateModel = (model: string) => () => {
+    const params = new URLSearchParams(search.toString())
+    params.set('model', model)
+    const urlWithParams = `${pathname}?${params.toString()}`
+    router.replace(urlWithParams)
+  }
+  const modelButtonVariant = (key: string, curModel: string) => {
+    const isActive = key === curModel
+    return isActive ? 'default' : 'secondary'
+  }
+
+  //prepare ui component
   const [previewTokenDialog, setPreviewTokenDialog] = useState(IS_PREVIEW)
   const [previewTokenInput, setPreviewTokenInput] = useState(previewToken ?? '')
   const { messages, append, reload, stop, isLoading, input, setInput } =
@@ -39,11 +72,27 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
       id,
       body: {
         id,
-        previewToken
+        previewToken,
+        model
       }
     })
   return (
     <>
+      <div className={cn(`flex justify-center pt-3`)}>
+        <Button
+          variant={modelButtonVariant(models['gpt-3.5-turbo-16k'].key, model)}
+          onClick={activateModel(models['gpt-3.5-turbo-16k'].key)}
+        >
+          GPT-3.5 Turbo
+        </Button>
+
+        <Button
+          variant={modelButtonVariant(models['gpt-4'].key, model)}
+          onClick={activateModel(models['gpt-4'].key)}
+        >
+          GPT-4
+        </Button>
+      </div>
       <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
         {messages.length ? (
           <>

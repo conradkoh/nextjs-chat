@@ -28,8 +28,23 @@ export async function POST(req: Request) {
     configuration.apiKey = previewToken
   }
 
+  let model = 'gpt-3.5-turbo-16k'
+  if (json.model) {
+    model = json.model
+  }
+  //validate allowed models
+  const allowedModels = [
+    'gpt-3.5-turbo-16k',
+    'gpt-3.5-turbo',
+    'gpt-4'
+    // 'gpt-4-0314'
+  ]
+  if (!allowedModels.includes(model)) {
+    return new Response('Invalid model', { status: 400 })
+  }
+
   const res = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+    model,
     messages,
     temperature: 0.7,
     stream: true
