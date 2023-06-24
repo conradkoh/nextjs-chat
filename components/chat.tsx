@@ -21,6 +21,7 @@ import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { usePathname, useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
+import { toast } from 'react-hot-toast'
 
 const IS_PREVIEW = process.env.VERCEL_ENV === 'preview'
 export interface ChatProps extends React.ComponentProps<'div'> {
@@ -74,6 +75,11 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
         id,
         previewToken,
         model
+      },
+      onResponse(response) {
+        if (response.status === 401) {
+          toast.error(response.statusText)
+        }
       }
     })
   return (
